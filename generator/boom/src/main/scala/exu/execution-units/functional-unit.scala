@@ -37,7 +37,7 @@ import boom.util._
 object FUConstants
 {
   // bit mask, since a given execution pipeline may support multiple functional units
-  val FUC_SZ = 10
+  val FUC_SZ = 11 //jd+
   val FU_X   = BitPat.dontCare(FUC_SZ)
   val FU_ALU =   1.U(FUC_SZ.W)
   val FU_BRU =   2.U(FUC_SZ.W)
@@ -49,6 +49,7 @@ object FUConstants
   val FU_FDV = 128.U(FUC_SZ.W)
   val FU_I2F = 256.U(FUC_SZ.W)
   val FU_F2I = 512.U(FUC_SZ.W)
+  val FU_MCU = 1024.U(FUC_SZ.W) //jd+
 
   // FP stores generate data through FP F2I, and generate address through MemAddrCalc
   val FU_F2IMEM = 516.U(FUC_SZ.W)
