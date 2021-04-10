@@ -168,10 +168,10 @@ object XDecode extends DecodeConstants
            //     |  |  |  |         |        |        regtype |       |       |  |     |  |  |  |  |  cmd    |    |  |  |  |  |  |  flush on commit
            //     |  |  |  |         |        |        |       |       |       |  |     |  |  |  |  |  |      |    |  |  |  |  |  |  |  csr cmd
   val table: Array[(BitPat, List[BitPat])] = Array(//  |       |       |       |  |     |  |  |  |  |  |      |    |  |  |  |  |  |  |  |
-  PACMA   -> List(Y, N, X, uopPAC  , IQT_INT, FU_MCU , RT_FIX, RT_FIX, RT_FIX, N, IS_X, N, N, N, N, N, M_X  , 1.U, N, N, N, N, N, N, N, CSR.N), //jd+begin
-  XPACM   -> List(Y, N, X, uopPAC  , IQT_INT, FU_MCU , RT_FIX, RT_X  , RT_X  , N, IS_X, N, N, N, N, N, M_X  , 1.U, N, N, N, N, N, N, N, CSR.N),
-  BNDSTR  -> List(Y, N, X, uopBND  , IQT_MEM, FU_MCU , RT_X  , RT_FIX, RT_FIX, N, IS_X, N, N, N, N, N, M_XWR, 0.U, N, N, N, N, N, N, N, CSR.N),
-  BNDCLR  -> List(Y, N, X, uopBND  , IQT_MEM, FU_MCU , RT_X  , RT_FIX, RT_X  , N, IS_X, N, N, N, N, N, M_XWR, 0.U, N, N, N, N, N, N, N, CSR.N), //jd+end
+  PACMA   -> List(Y, N, X, uopPACMA , IQT_INT, FU_ALU , RT_FIX, RT_FIX, RT_FIX, N, IS_X, N, N, N, N, N, M_X  , 1.U, Y, N, N, N, N, N, N, CSR.N), //jd+begin
+  XPACM   -> List(Y, N, X, uopXPACM , IQT_INT, FU_ALU , RT_FIX, RT_X  , RT_X  , N, IS_X, N, N, N, N, N, M_X  , 1.U, Y, N, N, N, N, N, N, CSR.N),
+  BNDSTR  -> List(Y, N, X, uopBNDSTR, IQT_MEM, FU_MCU , RT_X  , RT_FIX, RT_FIX, N, IS_X, N, N, N, N, N, M_XWR, 0.U, N, N, N, N, N, N, N, CSR.N),
+  BNDCLR  -> List(Y, N, X, uopBNDCLR, IQT_MEM, FU_MCU , RT_X  , RT_FIX, RT_X  , N, IS_X, N, N, N, N, N, M_XWR, 0.U, N, N, N, N, N, N, N, CSR.N), //jd+end
 
   LW      -> List(Y, N, X, uopLD   , IQT_MEM, FU_MEM , RT_FIX, RT_FIX, RT_X  , N, IS_I, Y, N, N, N, N, M_XRD, 3.U, N, N, N, N, N, N, N, CSR.N),
   LH      -> List(Y, N, X, uopLD   , IQT_MEM, FU_MEM , RT_FIX, RT_FIX, RT_X  , N, IS_I, Y, N, N, N, N, M_XRD, 3.U, N, N, N, N, N, N, N, CSR.N),

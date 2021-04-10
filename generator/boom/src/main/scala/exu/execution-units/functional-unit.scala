@@ -362,11 +362,13 @@ class ALUUnit(isBranchUnit: Boolean = false, numStages: Int = 1, dataWidth: Int)
   }
 
   // operand 2 select
-  val op2_data = Mux(uop.ctrl.op2_sel === OP2_IMM,  Sext(imm_xprlen.asUInt, xLen),
+  val op2_data = Mux(uop.uopc == uopPACMA         , "hABCDEF01FFFFFFFF",
+                 Mux(uop.uopc == uopXPACM         , "h00000000FFFFFFFF",
+                 Mux(uop.ctrl.op2_sel === OP2_IMM ,  Sext(imm_xprlen.asUInt, xLen),
                  Mux(uop.ctrl.op2_sel === OP2_IMMC, io.req.bits.uop.prs1(4,0),
                  Mux(uop.ctrl.op2_sel === OP2_RS2 , io.req.bits.rs2_data,
                  Mux(uop.ctrl.op2_sel === OP2_NEXT, Mux(uop.is_rvc, 2.U, 4.U),
-                                                    0.U))))
+                                                    0.U))))))
 
   val alu = Module(new freechips.rocketchip.rocket.ALU())
 

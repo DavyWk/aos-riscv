@@ -288,8 +288,10 @@ trait ScalarOpConstants
 
   val uopROCC      = 108.U(UOPC_SZ.W)
 
-  val uopPAC       = 109.U(UOPC_SZ.W) //jd+
-  val uopBND       = 110.U(UOPC_SZ.W) //jd+
+  val uopPACMA     = 109.U(UOPC_SZ.W) //jd+begin
+  val uopXPACM     = 110.U(UOPC_SZ.W)
+  val uopBNDSTR    = 111.U(UOPC_SZ.W)
+  val uopBNDCLR    = 112.U(UOPC_SZ.W) //jd+end
 
   // The Bubble Instruction (Machine generated NOP)
   // Insert (XOR x0,x0,x0) which is different from software compiler

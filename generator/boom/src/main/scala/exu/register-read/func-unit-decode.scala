@@ -104,7 +104,10 @@ object AluRRdDecode extends RRdDecodeConstants
          BitPat(uopSUBW)  -> List(BR_N , Y, N, N, FN_SUB , DW_32 , OP1_RS1 , OP2_RS2 , IS_X, REN_1, CSR.N),
          BitPat(uopSLLW)  -> List(BR_N , Y, N, N, FN_SL  , DW_32 , OP1_RS1 , OP2_RS2 , IS_X, REN_1, CSR.N),
          BitPat(uopSRAW)  -> List(BR_N , Y, N, N, FN_SRA , DW_32 , OP1_RS1 , OP2_RS2 , IS_X, REN_1, CSR.N),
-         BitPat(uopSRLW)  -> List(BR_N , Y, N, N, FN_SR  , DW_32 , OP1_RS1 , OP2_RS2 , IS_X, REN_1, CSR.N))
+         BitPat(uopSRLW)  -> List(BR_N , Y, N, N, FN_SR  , DW_32 , OP1_RS1 , OP2_RS2 , IS_X, REN_1, CSR.N),
+
+         BitPat(uopPACMA) -> List(BR_N , Y, N, N, FN_AND, DW_XPR, OP1_RS1 , OP2_IMM , IS_I, REN_1, CSR.N),
+         BitPat(uopXPACM) -> List(BR_N , Y, N, N, FN_AND, DW_XPR, OP1_RS1 , OP2_IMM , IS_I, REN_1, CSR.N))
 }
 
 /**
