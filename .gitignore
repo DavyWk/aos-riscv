@@ -1,4 +1,4 @@
 verilator/generated-src/
-verilator/simulator-chipyard-SmallBoomConfig
+verilator/simulator-chipyard-*
 *.out
 *.riscv
