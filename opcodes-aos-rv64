@@ -1,0 +1,7 @@
+# OPs added to RISCV64 for the Always-On Heap Memory Safety project 
+
+pacma
+xpacm
+
+bndstr
+bndclr
