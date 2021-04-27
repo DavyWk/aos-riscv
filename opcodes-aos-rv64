@@ -1,7 +1,7 @@
 # OPs added to RISCV64 for the Always-On Heap Memory Safety project 
 
-pacma
-xpacm
+pacma rd rs1 rs2 31..25=30 14..12=7 6..2=0x0C 1..0=3
+xpacm rd rs1 rs2 31..25=31 14..12=7 6..2=0X0C 1..0=3 # Not sure about last 2 fields for these
 
-bndstr
-bndclr
+#bndstr
+#bndclr
